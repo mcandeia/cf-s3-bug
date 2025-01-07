@@ -1,0 +1,18 @@
+#:schema node_modules/wrangler/config-schema.json
+
+name = "s3-head-bug"
+main = "main.ts"
+compatibility_date = "2023-12-01"
+routes = [{ pattern = "cf-head-bug.webdraw.com", custom_domain = true }]
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+AWS_REGION = "us-east-2"
+
+[[durable_objects.bindings]]
+name = "TEST_DO"
+class_name = "TestDO"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["TestDO"]
